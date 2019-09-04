@@ -7,3 +7,15 @@
   text-align: center;
   font-size: 23px;
 }
+input{
+  min-width: 20px;
+  min-height: 40px;
+  max-width: 20px;
+  max-height: 40px;
+  border: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
