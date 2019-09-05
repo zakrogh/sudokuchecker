@@ -18,7 +18,9 @@ Board.prototype.displayBoard = function(){
   let counter = 1;
   for(let i = 0; i < this.board.length;i++){
     for(let j = 0; j < this.board[i].length;j++){
-      $("#" + counter).val(this.board[i][j]);
+      if(this.board[i][j] != 0){
+        $("#" + counter).val(this.board[i][j]);
+      }
       counter++;
     }
   }
@@ -36,6 +38,7 @@ Board.prototype.checkBoard = function(){
 
     if(temp.sort().join("") !== success){
       this.isOK = false;
+      $(".output").text("Incorrect Solution.")
     }
   }
   //check columns
@@ -46,6 +49,7 @@ Board.prototype.checkBoard = function(){
     }
     if(temp.sort().join("") !== success){
       this.isOK = false;
+      $(".output").text("Incorrect Solution.")
     }
   }
   //check squares
@@ -67,9 +71,12 @@ Board.prototype.checkBoard = function(){
     console.log(temp);
     if(temp.sort().join("") !== success){
       this.isOK = false;
+      $(".output").text("Incorrect Solution.")
     }
     y += 3;
   }
-
+  if(this.isOK){
+    $(".output").text("Correct Solution!")
+  }
   console.log(this.isOK)
 }
